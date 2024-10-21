@@ -8,10 +8,31 @@ datasource db {
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
+  userId  Int   @id @default(autoincrement())
   email String  @unique
+  password String 
   name  String
+  address String
+  phone String
+  products Product[]
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
 
   @@map("users")
 }
 
+model Product {
+  productId    Int     @id @default(autoincrement())
+  category String 
+  condition String
+  name String
+  price Float
+  active Boolean       @default(false)
+  description String
+  image String
+  user User @relation(fields: [productId], references: [userId])
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+  
+  @@map("products")
+}
