@@ -1,0 +1,10 @@
+services:
+
+  nadc-mkt-db:
+    image: bitnami/postgresql
+    ports: 
+     - '5432:5432'
+    environment:
+     - POSTGRES_USERNAME=postgres
+     - POSTGRES_PASSWORD=feiradecarreiras2015
+     - POSTGRES_DATABASE=nadc-mkt-db
