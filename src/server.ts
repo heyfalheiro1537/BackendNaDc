@@ -1,6 +1,6 @@
 import Fastify from 'fastify'
-import userRoutes from './routes/userRoutes';
-import productRoutes from './routes/productRoutes';
+import userRoutes from './routes/userRoutes'
+import productRoutes from './routes/productRoutes'
 
 //inicialização do banco a adicionar
 
