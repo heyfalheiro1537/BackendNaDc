@@ -1,4 +1,5 @@
 import { prisma } from "../lib/prisma";
+import { Prisma } from "@prisma/client";
 import { User } from "../models/type";
 
 export function getUserById(id: number) {
@@ -15,12 +16,16 @@ export function createUser(user: User) {
   });
 }
 
-export function updateUser(id: number, user: User) {
+export function allUsers(){
+  return prisma.user.findMany()
+}
+
+export function updateUser(id: number, data: Prisma.UserUncheckedUpdateInput) {
   return prisma.user.update({
     where: {
-      userId: id,
+      userId : id,
     },
-    data: user,
+    data,
   });
 }
 

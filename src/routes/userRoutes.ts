@@ -1,7 +1,8 @@
-import { getUser, createUser, deleteUser, putUser } from '../controllers/userController';
+import { getUser,getAllUser, createUser, deleteUser, patchUser } from '../controllers/userController';
 import { FastifyInstance } from 'fastify';
 
 export default async function userRoutes(fastify: FastifyInstance) {
+  
   fastify.get('/:id', {
     schema: {
       params: {
@@ -13,6 +14,8 @@ export default async function userRoutes(fastify: FastifyInstance) {
       }
     }
   }, getUser);
+  fastify.get('/', {
+  }, getAllUser);
   
   fastify.post('/',{
     schema:{
@@ -29,10 +32,28 @@ export default async function userRoutes(fastify: FastifyInstance) {
     }
   },createUser);
 
-  fastify.put('/:id', putUser);
+  fastify.patch('/:id',{
+    schema: {
+      params: {
+        type: 'object',
+        properties: {
+          id: { type: 'integer' } 
+        },
+        required: ['id'] 
+      }
+    }
+  }, patchUser);
 
-  
-
-  fastify.delete('/:id', deleteUser);
+  fastify.delete('/:id', {
+    schema: {
+      params: {
+        type: 'object',
+        properties: {
+          id: { type: 'integer' } 
+        },
+        required: ['id'] 
+      }
+    }
+  }, deleteUser);
   
 }
