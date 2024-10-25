@@ -20,6 +20,7 @@ export interface Product {
     description: string;
     createdAt: Date;
     updatedAt: Date;
+    userId: number;
 }
 
 

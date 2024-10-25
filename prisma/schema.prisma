@@ -30,7 +30,8 @@ model Product {
   active Boolean       @default(false)
   description String
   image String
-  user User @relation(fields: [productId], references: [userId])
+  userId       Int     
+  user         User     @relation(fields: [userId], references: [userId])
   created_at DateTime @default(now())
   updated_at DateTime @default(now())
   

@@ -1,13 +1,11 @@
 import { getUserById, allUsers,createUser, deleteUser, updateUser as update} from "../datalayer/user";
 import {User} from "../models/type";
 
-
-
 export async function fetchUser(id: number) {
 
   const user = await getUserById(id);
   if (!user) {
-    throw new Error(`User with id ${id} not found`);
+    throw new Error(`User not found`);
   }
   return user;
 }
