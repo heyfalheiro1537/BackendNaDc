@@ -16,7 +16,9 @@ export default async function productRoutes(fastify: FastifyInstance) {
               }
             }
           }, getProduct);
+
     fastify.get('/', getProducts);
+    
     fastify.patch('/:id',{
         schema: {
           params: {

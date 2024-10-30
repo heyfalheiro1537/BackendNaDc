@@ -7,7 +7,6 @@ interface ProductProps {
     id:number;
 }
 
-//zod enum next time
 
 
 const productSchema = z.object({

@@ -13,7 +13,7 @@ fastify.register(userRoutes, { prefix: '/user' });
 fastify.register(productRoutes, { prefix: '/product' });
 
 
-fastify.listen({ port: 3000 }, function (err) {
+fastify.listen({ port: 3030 }, function (err) {
     if (err) {
       fastify.log.error(err)
       process.exit(1)

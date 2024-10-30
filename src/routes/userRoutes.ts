@@ -14,6 +14,8 @@ export default async function userRoutes(fastify: FastifyInstance) {
       }
     }
   }, getUser);
+
+  
   fastify.get('/', {
   }, getAllUser);
   
